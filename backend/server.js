@@ -8,7 +8,15 @@ const app = express();
 
 
 // Middleware
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://school-q9037dntr-lovyverma231-dels-projects.vercel.app"
+    ],
+    credentials: true
+  })
+);
 app.use(express.json());
 
 // Health check — verify MongoDB connection
